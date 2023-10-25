@@ -6,3 +6,5 @@
 - Conda: 23.3.1
 - KoNLPy: 0.6.0
 - NLTK: 3.8.1
+- Gensim: 4.3.2
+- TensorFlow: 2.14.0
