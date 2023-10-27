@@ -7,7 +7,7 @@ from keras.models import Sequential
 from keras.layers import Embedding, Lambda, Dense
 from keras import backend
 
-# 학습 데이터
+# 훈련 데이터
 train_data = [
     '나는 고양이를 정말 좋아해요',
     '나는 강아지를 정말 싫어하지 않아요',
@@ -51,8 +51,10 @@ def preprocecssing(train_tokenized):
     return context, target
 
 
+# 데이터 전처리
 context, target = preprocecssing(train_tokenized)
 
+# 모델 생성
 cbow_model = Sequential()
 
 cbow_model.add(Embedding(input_dim=vocab_size, output_dim=embedding_size, input_length=window_size * 2))
@@ -62,6 +64,7 @@ cbow_model.add(Dense(vocab_size, activation='softmax'))
 cbow_model.compile(optimizer='sgd', loss='categorical_crossentropy')
 print(cbow_model.summary())
 
+# 학습
 cbow_model.fit(context, target, batch_size=4, epochs=100, verbose=1)
 
 # 테스트 데이터
