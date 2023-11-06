@@ -23,7 +23,7 @@ sentences = [
 # 위 문장을 이용하여 단어와 인덱스로 이루어진 딕셔너리 생성
 tokenizer = Tokenizer()
 tokenizer.fit_on_texts(sentences)
-print(tokenizer.word_index)
+print(f'단어 인덱스: {tokenizer.word_index}')
 
 # 훈련 데이터 생성
 x_train, y_train = [], []
@@ -75,4 +75,4 @@ for _ in range(num_words):
 
     gen_sentence += ' ' + list(tokenizer.word_index.items())[output[0]][0]
 
-print(gen_sentence)
+print(f'생성된 문장: {gen_sentence}')
