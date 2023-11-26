@@ -70,7 +70,7 @@ es_vocab_size = len(tokenizer_es.word_index) + 1
 
 encoder_inputs = en_x
 decoder_inputs = es_y[:, :-1]
-outputs = es_y[:, 1:]
+decoder_outputs = es_y[:, 1:]
 
 num_head = 8
 embedding_size = 256
@@ -97,7 +97,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=
 print(model.summary())
 
 # 학습
-model.fit([encoder_inputs, decoder_inputs], outputs, epochs=50, validation_split=0.2)
+model.fit([encoder_inputs, decoder_inputs], decoder_outputs, epochs=50, validation_split=0.2)
 
 # 기계 번역 실행
 decoder_idx_to_word = dict(zip(range(len(tokenizer_es.word_index)), tokenizer_es.word_index))
