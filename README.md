@@ -8,3 +8,4 @@
 - NLTK: 3.8.1
 - Gensim: 4.3.2
 - TensorFlow: 2.14.0
+- KerasNLP: 0.6.3
